@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aagam Gandhi | Portfolio</title>
+
+    <!-- Icons & Fonts -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicon/devicon@latest/devicon.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+         :root {
+            --bg-body: #fbfcfe;
+            --bg-card: #ffffff;
+            --accent: #2563eb;
+            --accent-soft: rgba(37, 99, 235, 0.08);
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.04), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        /* --- HEADER --- */
+        
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(251, 252, 254, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: var(--accent);
+            letter-spacing: -1px;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        /* --- HERO --- */
+        
+        #hero {
+            padding: 180px 8% 100px;
+            text-align: center;
+            background: radial-gradient(circle at top right, #e0e7ff 0%, transparent 40%);
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            padding: 8px 16px;
+            background: var(--accent-soft);
+            color: var(--accent);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        
+        .hero-name {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            font-weight: 800;
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+            line-height: 1;
+        }
+        
+        .hero-role {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        
+        .btn-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+        
+        .btn {
+            padding: 14px 28px;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: white;
+            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.4);
+        }
+        /* --- SECTION DEFAULTS --- */
+        
+        section {
+            padding: 100px 8%;
+        }
+        
+        .section-header {
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+        /* --- SKILLS GRID --- */
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+        
+        .skill-group {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .skill-group:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+        
+        .skill-group h3 {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .skill-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-body);
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+        
+        .skill-item i {
+            font-size: 1.2rem;
+        }
+        /* --- EXPERIENCE TIMELINE --- */
+        
+        .experience-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 40px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            box-shadow: var(--shadow);
+        }
+        
+        .exp-meta {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+        
+        .exp-content h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+        
+        .exp-company {
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            display: block;
+        }
+        
+        .exp-list {
+            list-style: none;
+        }
+        
+        .exp-list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+        
+        .exp-list li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        /* --- PROJECTS --- */
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: var(--bg-card);
+            border-radius: 24px;
+            padding: 35px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: scale(1.02);
+            border-color: var(--accent);
+        }
+        
+        .p-type {
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .project-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+        }
+        
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 25px;
+        }
+        /* --- CERTIFICATIONS --- */
+        
+        .cert-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: var(--bg-card);
+            padding: 18px 25px;
+            border-radius: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .cert-info strong {
+            display: block;
+            font-size: 0.95rem;
+        }
+        
+        .cert-info span {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        /* --- EDUCATION --- */
+        
+        .edu-container {
+            display: grid;
+            gap: 20px;
+        }
+        
+        .edu-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+        
+        .edu-school {
+            font-weight: 800;
+            font-size: 1.1rem;
+        }
+        
+        .edu-degree {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .edu-date {
+            font-weight: 700;
+            color: var(--text-muted);
+        }
+        /* Responsive */
+        
+        @media (max-width: 768px) {
+            header {
+                padding: 0 5%;
+            }
+            .nav-links {
+                display: none;
+            }
+            .experience-card {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            .cert-list {
+                grid-template-columns: 1fr;
+            }
+            .edu-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">AG.</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+            </ul>
+        </nav>
+        <a href="mailto:aagamgandhi1004@gmail.com" class="btn btn-primary" style="padding: 10px 20px; font-size: 0.8rem;">Hire Me</a>
+    </header>
+
+    <section id="hero">
+
+        <h1 class="hero-name">Aagam Gandhi</h1>
+        <p class="hero-role">Computer Engineering Undergraduate specialized in Digital Forensics & Machine Learning. Building secure, intelligent systems for the future.</p>
+        <div class="btn-container">
+            <a href="Aagam_Gandhi_CV.pdf" class="btn btn-primary">Download CV</a>
+            <div style="display: flex; align-items: center; gap: 15px; margin-left: 10px;">
+                <a href="https://www.linkedin.com/in/aagam-gandhi-069524226/" style="color: var(--text-muted); font-size: 1.5rem;"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Aagam1005" style="color: var(--text-muted); font-size: 1.5rem;"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-header">
+            <h2 class="section-title">Technical Skills</h2>
+        </div>
+        <div class="skills-container">
+            <!-- Cybersecurity -->
+            <div class="skill-group">
+                <h3>Cybersecurity</h3>
+                <div class="skill-icons">
+                    <div class="skill-item"><i class="fas fa-user-shield"></i> Digital Forensics</div>
+                    <div class="skill-item"><i class="fas fa-network-wired"></i> Network Security</div>
+                </div>
+            </div>
+
+            <!-- Machine Learning -->
+            <div class="skill-group">
+                <h3>Machine Learning</h3>
+                <div class="skill-icons">
+                    <div class="skill-item"><i class="devicon-python-plain colored"></i> Scikit-Learn</div>
+                    <div class="skill-item"><i class="fas fa-brain"></i> Deep Learning (CNN, ResNet)</div>
+                    <div class="skill-item"><i class="fas fa-robot"></i> Generative AI</div>
+                </div>
+            </div>
+
+            <!-- Cloud & Networking -->
+            <div class="skill-group">
+                <h3>Cloud & Networking</h3>
+                <div class="skill-icons">
+                    <div class="skill-item"><i class="devicon-amazonwebservices-plain-wordmark colored"></i> AWS Cloud</div>
+                    <div class="skill-item"><i class="fas fa-route"></i> Cisco Routing/Switching</div>
+                </div>
+            </div>
+
+            <!-- Programming -->
+            <div class="skill-group">
+                <h3>Programming & DB</h3>
+                <div class="skill-icons">
+                    <div class="skill-item"><i class="devicon-python-plain colored"></i> Python</div>
+                    <div class="skill-item"><i class="devicon-java-plain colored"></i> Java</div>
+                    <div class="skill-item"><i class="devicon-mysql-plain colored"></i> SQL</div>
+                    <div class="skill-item"><i class="devicon-mongodb-plain colored"></i> MongoDB</div>
+                </div>
+            </div>
+
+            <!-- Tools -->
+            <div class="skill-group">
+                <h3>Tools & Viz</h3>
+                <div class="skill-icons">
+                    <div class="skill-item"><i class="fas fa-chart-bar"></i> Tableau</div>
+                    <div class="skill-item"><i class="devicon-git-plain colored"></i> Git</div>
+                    <div class="skill-item"><i class="fab fa-android"></i> ADB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-header">
+            <h2 class="section-title">Professional Experience</h2>
+        </div>
+
+        <div class="experience-card">
+            <div class="exp-meta">Sept 2025 — Dec 2025</div>
+            <div class="exp-content">
+                <h3>Python Development Intern</h3>
+                <span class="exp-company">Infotact Solution</span>
+                <ul class="exp-list">
+                    <li>Developed scripts and automated tasks to build small-scale applications.</li>
+                    <li>Wrote clean, efficient code and collaborated in team-based environments.</li>
+                    <li>Utilized Git for version control and managed basic API integrations.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="exp-meta">May 2025 — Jun 2025</div>
+            <div class="exp-content">
+                <h3>Machine Learning Intern</h3>
+                <span class="exp-company">Future Intern</span>
+                <ul class="exp-list">
+                    <li>Gained hands-on experience in machine learning concepts and applications.</li>
+                    <li>Developed and implemented machine learning models for specific project goals.</li>
+                    <li>Analyzed data sets to derive meaningful insights for the team.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="experience-card">
+            <div class="exp-meta">Jun 2024 — Jul 2024</div>
+            <div class="exp-content">
+                <h3>Web Designer Trainee</h3>
+                <span class="exp-company">CtrlCraft Infoway</span>
+                <ul class="exp-list">
+                    <li>Skilled in visual design, front-end development, and UI/UX principles.</li>
+                    <li>Focused on crafting clean, user-friendly digital experiences.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-header">
+            <h2 class="section-title">Key Projects</h2>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card">
+                <span class="p-type">Cybersecurity</span>
+                <h3>Email Forensics Engine</h3>
+                <p>Python tool integrating SPF/DKIM cryptographic checks with RoBERTa NLP for high-accuracy spoof detection.</p>
+                <div class="skill-icons">
+                    <div class="skill-item">Python</div>
+                    <div class="skill-item">NLP</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="p-type">Forensics</span>
+                <h3>Mobile Automation Suite</h3>
+                <p>Automated evidence extraction tool using ADB to streamline data collection from Android devices.</p>
+                <div class="skill-icons">
+                    <div class="skill-item">ADB</div>
+                    <div class="skill-item">Python</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="p-type">Machine Learning</span>
+                <h3>Image Classification</h3>
+                <p>Research project utilizing ResNet and EfficientNet to classify complex datasets of animals and vehicles.</p>
+                <div class="skill-icons">
+                    <div class="skill-item">PyTorch</div>
+                    <div class="skill-item">Deep Learning</div>
+                    <div class="skill-item">Research Project</div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <span class="p-type">Web Development</span>
+                <h3>Travels Application</h3>
+                <p>Full-stack React & MongoDB app with secure auth and real-time booking management.</p>
+                <div class="skill-icons">
+                    <div class="skill-item">React</div>
+                    <div class="skill-item">MongoDB</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="certifications">
+        <div class="section-header">
+            <h2 class="section-title">Professional Certifications</h2>
+        </div>
+        <div class="cert-list">
+            <!-- AWS -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>AWS Academy Graduate</strong>
+                    <span>AWS Academy Cloud Foundations</span>
+                </div>
+                <i class="fab fa-aws fa-2x" style="color: #FF9900;"></i>
+            </div>
+
+            <!-- Cisco CCNA -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Cisco Networking Academy</strong>
+                    <span>CCNAv7: Introduction to Networks & Switching/Routing</span>
+                </div>
+                <i class="fas fa-network-wired fa-lg" style="color: #049fd9;"></i>
+            </div>
+
+            <!-- Microsoft & upGrad -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Microsoft & upGrad</strong>
+                    <span>Certified in Generative AI Foundations</span>
+                </div>
+                <i class="fab fa-microsoft fa-lg" style="color: #00A4EF;"></i>
+            </div>
+
+            <!-- IBM & Cisco -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>IBM & Cisco</strong>
+                    <span>Cybersecurity Fundamentals; Introduction to Cybersecurity</span>
+                </div>
+                <i class="fas fa-user-shield fa-lg" style="color: #052FAD;"></i>
+            </div>
+
+            <!-- Deloitte -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Deloitte Australia</strong>
+                    <span>Data Analytics Job Simulation</span>
+                </div>
+                <i class="fas fa-chart-line fa-lg" style="color: #86BC25;"></i>
+            </div>
+
+            <!-- Infosys -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Infosys Springboard</strong>
+                    <span>Business Analytics (WEKA, Tableau, Scikit-Learn)</span>
+                </div>
+                <i class="fas fa-chart-bar fa-lg" style="color: #007cc3;"></i>
+            </div>
+
+            <!-- Oracle -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Oracle</strong>
+                    <span>Database Programming with SQL</span>
+                </div>
+                <i class="fas fa-database fa-lg" style="color: #F80000;"></i>
+            </div>
+
+            <!-- Michigan -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>University of Michigan</strong>
+                    <span>Programming for Everybody (Python)</span>
+                </div>
+                <i class="devicon-python-plain colored fa-lg"></i>
+            </div>
+
+            <!-- Google -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Google Developer Program</strong>
+                    <span>Member / Participant</span>
+                </div>
+                <i class="fab fa-google fa-lg" style="color: #4285F4;"></i>
+            </div>
+
+            <!-- Tata -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>Tata Group</strong>
+                    <span>Data Visualization: Empowering Business with Insights</span>
+                </div>
+                <i class="fas fa-eye fa-lg" style="color: #004b8d;"></i>
+            </div>
+
+            <!-- Maryland -->
+            <div class="cert-item">
+                <div class="cert-info">
+                    <strong>University of Maryland</strong>
+                    <span>Cyber Security For Everyone</span>
+                </div>
+                <i class="fas fa-shield-alt fa-lg" style="color: #E01933;"></i>
+            </div>
+        </div>
+    </section>
+    <section id="education">
+        <div class="section-header">
+            <h2 class="section-title">Education</h2>
+        </div>
+        <div class="edu-container">
+            <div class="edu-card">
+                <div>
+                    <div class="edu-school">Marwadi University, Rajkot, Gujarat</div>
+                    <div class="edu-degree">Bachelor of Technology (B.TECH), Computer Engineering</div>
+                </div>
+                <div class="edu-date">Jul 2023 — May 2026</div>
+            </div>
+            <div class="edu-card">
+                <div>
+                    <div class="edu-school">Marwadi University, Rajkot, Gujarat</div>
+                    <div class="edu-degree">Diploma of Education, Computer Engineering</div>
+                </div>
+                <div class="edu-date">Jan 2020 — Apr 2023</div>
+            </div>
+        </div>
+    </section>
+
+    <footer style="text-align: center; padding: 40px; border-top: 1px solid var(--border); color: var(--text-muted); font-size: 0.9rem;">
+        <p>© 2026 Aagam Gandhi • Built with precision and passion.</p>
+    </footer>
+
+</body>
+
+</html>
